@@ -2,7 +2,9 @@ import express, { Application, ErrorRequestHandler } from 'express';
 import { MiddlewareFunction } from './types';
 import cors from 'cors';
 import api from './routes';
+import { pollWatchlistStocks } from './utils';
 
+const POLL_INTERVAL = 10000;
 const port = 3000;
 const app: Application = express();
 
@@ -26,6 +28,8 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
 app.use('/api', api);
 app.use(pageNotFoundHandler);
 app.use(errorHandler);
+
+setInterval(pollWatchlistStocks, POLL_INTERVAL);
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port} \n`);

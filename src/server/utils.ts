@@ -1,6 +1,8 @@
 import { v4 as uuid } from 'uuid';
 import { Stock } from './types';
 import { UUID } from 'crypto';
+import { getWatchedStocks, updateWatchlist } from '../db/utils';
+import yahooFinance from 'yahoo-finance2';
 
 export function buildStock(data: any): Stock {
   return {
@@ -9,4 +11,17 @@ export function buildStock(data: any): Stock {
     symbol: data.symbol.toUpperCase(),
     displayName: data.displayName,
   };
+}
+
+export async function pollWatchlistStocks() {
+  const watchlist = getWatchedStocks();
+  const promises = watchlist.map(async (stock: Stock) => {
+    const data = await yahooFinance.quote(stock.symbol, {
+      fields: ['symbol', 'displayName', 'regularMarketPrice'],
+    });
+    return buildStock(data);
+  });
+
+  const newList = await Promise.all(promises);
+  updateWatchlist(newList);
 }

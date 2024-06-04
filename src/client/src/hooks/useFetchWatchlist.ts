@@ -8,5 +8,5 @@ export const useFetchWatchlist = () => {
     return res.data;
   };
 
-  return useQuery({ queryKey: ['fetchWatchlist'], queryFn: fetchWatchlist });
+  return useQuery({ queryKey: ['fetchWatchlist'], queryFn: fetchWatchlist, refetchInterval: 10000 });
 };
