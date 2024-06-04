@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "ESNext",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./main.ts",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Bundler",
+  },
+  "exclude": ["node_modules"]
+}
