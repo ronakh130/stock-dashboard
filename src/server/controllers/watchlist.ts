@@ -1,5 +1,5 @@
 import { MiddlewareFunction } from '../types';
-import { deleteWatchedStock, getWatchedStocks, saveWatchedStocks } from '../../db/utils';
+import { deleteWatchedStock, getWatchedStocks, saveWatchedStock } from '../../db/utils';
 
 interface WatchlistController {
   getWatchlist: MiddlewareFunction;
@@ -15,13 +15,15 @@ export const watchlistController: WatchlistController = {
 
   addStockToWatchlist(req, res, next) {
     const { stock, watchlist } = res.locals;
-    res.locals.newList = saveWatchedStocks(watchlist, stock);
+    //TODO: add example sql statement
+    res.locals.newList = saveWatchedStock(watchlist, stock);
     return next();
   },
 
   deleteStockFromWatchlist(req, res, next) {
     const { symbol } = req.params;
     const { watchlist } = res.locals;
+    //TODO: add example sql statement
     res.locals.newList = deleteWatchedStock(watchlist, symbol.toUpperCase());
     return next();
   },

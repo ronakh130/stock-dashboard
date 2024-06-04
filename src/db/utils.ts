@@ -7,15 +7,22 @@ export function getWatchedStocks() {
   return data;
 }
 
-export function saveWatchedStocks(watchlist: Stock[], stock: Stock) {
+export function saveWatchedStock(watchlist: Stock[], stock: Stock) {
   const newList = { data: [...watchlist, stock] };
   fs.writeFileSync('../db/watchlist.json', JSON.stringify(newList));
 
   return newList;
 }
 
-export function deleteWatchedStock(watchlist: Stock[], symbol: string){
-  const newList = { data: watchlist.filter(stock => stock.symbol !== symbol)};
+export function deleteWatchedStock(watchlist: Stock[], symbol: string) {
+  const newList = { data: watchlist.filter((stock) => stock.symbol !== symbol) };
+  fs.writeFileSync('../db/watchlist.json', JSON.stringify(newList));
+
+  return newList;
+}
+
+export function updateWatchlist(watchlist: Stock[]) {
+  const newList = { data: watchlist };
   fs.writeFileSync('../db/watchlist.json', JSON.stringify(newList));
 
   return newList;

@@ -1,3 +1,4 @@
+import { UUID } from 'crypto';
 import { NextFunction, Request, Response } from 'express';
 
 export type MiddlewareFunction = (
@@ -19,7 +20,7 @@ interface BaseStock {
 }
 
 export interface Stock extends BaseStock{
-  id: number;
+  id: UUID;
   currentPrice?: number;
 }
 
