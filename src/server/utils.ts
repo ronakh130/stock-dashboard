@@ -10,6 +10,7 @@ export function buildStock(data: any): Stock {
     currentPrice: data.regularMarketPrice,
     symbol: data.symbol.toUpperCase(),
     displayName: data.displayName,
+    // can also have db add a timestamp of last updated/checked/added etc.
   };
 }
 

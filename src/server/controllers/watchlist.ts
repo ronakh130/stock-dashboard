@@ -15,7 +15,6 @@ export const watchlistController: WatchlistController = {
 
   addStockToWatchlist(req, res, next) {
     const { stock, watchlist } = res.locals;
-    //TODO: add example sql statement
     res.locals.newList = saveWatchedStock(watchlist, stock);
     return next();
   },
@@ -23,7 +22,6 @@ export const watchlistController: WatchlistController = {
   deleteStockFromWatchlist(req, res, next) {
     const { symbol } = req.params;
     const { watchlist } = res.locals;
-    //TODO: add example sql statement
     res.locals.newList = deleteWatchedStock(watchlist, symbol.toUpperCase());
     return next();
   },
