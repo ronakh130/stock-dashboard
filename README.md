@@ -2,10 +2,10 @@
 
 ## Thoughts
 
-**FE and BE**
+**FE and BE:**
 Completed all requirements and also added remove stock functionality. Updates occur via polling every 10 seconds.
 
-**DB**
+**DB:**
 Instead of constructing a full db, to save time I opted to just create a local file which represents the table holding all watched stocks.
 
 However, I still wrote sample SQL statements for both creating the tables as well as all the CRUD functionality.
@@ -36,7 +36,7 @@ Then navigate to <http://127.0.0.1:5173/>.
 
 Objective: Create a real-time stock market dashboard that displays stock prices and updates them periodically. The application should have a backend built with Node.js, a frontend with React.js, and utilize SQL for data management.
 
-Please create a Github repo and share the link when ready. 
+Please create a Github repo and share the link when ready.
 
 ## Backend (Node.js)
 
