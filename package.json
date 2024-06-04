@@ -1,0 +1,16 @@
+{
+  "name": "stock-dashboard",
+  "version": "1.0.0",
+  "description": "Stock dashboard",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "cd src/client && npm run dev",
+    "start:server": "cd src/server && npm run start",
+    "start": "npm-run-all --parallel start:client start:server"
+  },
+  "author": "Ronak Hirpara",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
